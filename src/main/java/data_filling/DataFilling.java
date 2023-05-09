@@ -25,7 +25,7 @@ public class DataFilling {
 
     public static void fillTableAuthors() throws SQLException {
 
-        System.out.println("Для выхода нажмите \"q\", для продолжения - любую клавишу.");
+        System.out.println("Для выхода нажмите \"q\", для продолжения  'Authors' - любую клавишу.");
         if (scan.nextLine().equals("q")) return;
 
         System.out.println("Enter the author name:");
@@ -43,7 +43,7 @@ public class DataFilling {
 
     public static void fillTableBooks() throws SQLException {
         LocalDate date;
-        System.out.println("Для выхода нажмите \"q\", для продолжения - любую клавишу.");
+        System.out.println("Для выхода нажмите \"q\", для продолжения 'Books' - любую клавишу.");
         if (scan.nextLine().equals("q")) return;
         System.out.println("Enter the book title:");
         name = scan.nextLine();
@@ -56,11 +56,17 @@ public class DataFilling {
         authorID = scan.nextInt();
         System.out.println("Enter the theme ID:");
         themeID = scan.nextInt();
+        scan.nextLine();
+
 
         statement.execute(String.format("Insert into 'Books' ('Name', 'Pages', 'Price', 'PublishDate'," +
                         "'AuthorId', 'ThemeId') values ('%s', '%d', '%f', '" + date + "', '%d', '%d')", name, pages, price,
                 authorID, themeID));
         fillTableBooks();
+    }
+
+    public static void fillTableSales()throws SQLException{
+
     }
 
     public static LocalDate setData() {

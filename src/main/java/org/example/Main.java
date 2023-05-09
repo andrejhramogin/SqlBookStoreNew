@@ -13,7 +13,7 @@ public class Main {
         DataFilling.fillTableAuthors();
         DataFilling.fillTableBooks();
 
-        ConnectionDB.connectionClose();
-        TableCreate.statementClose();
+//        ConnectionDB.connectionClose();
+//        TableCreate.statementClose();
     }
 }

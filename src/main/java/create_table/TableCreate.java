@@ -21,8 +21,8 @@ public class TableCreate {
         statement.execute("Create table if not exists 'Books'(" +
                 "'ID' integer primary key autoincrement not null," +
                 "'Name' nvarchar max not null check (trim(Name) != '')," +
-                "'Pages' int not null check (Pages <=0)," +
-                "'Price' money not null check (Price <0)," +
+                "'Pages' int not null check (Pages >= 0)," +
+                "'Price' money not null check (Price > 0)," +
                 "'PublishDate' date not null check (PublishDate <= CURRENT_DATE)," +
                 "'AuthorId' int not null," +
                 "'ThemeId' int not null," +
@@ -34,8 +34,8 @@ public class TableCreate {
 
         statement.execute("Create table if not exists 'Sales'(" +
                 "'Id' integer primary key autoincrement not null," +
-                "'Price' money not null check(Price <0)," +
-                "'Quantity' int not null check (Quantity <=0)," +
+                "'Price' money not null check(Price >= 0)," +
+                "'Quantity' int not null check (Quantity > 0)," +
                 "'SaleDate' date not null default CURRENT_DATE check (SaleDate <= CURRENT_DATE)," +
                 "'BookId' int not null," + //проданная книга
                 "'ShopId' int not null," + //Магазин, в котором была сделана продажа
